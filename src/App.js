@@ -14,14 +14,17 @@ const App = () => {
   const addAnecdote = (event) => {
     event.preventDefault()
     const anecdoteContent = event.target.anecdoteName.value
-    event.target.anecdoteName.value =''
+    event.target.anecdoteName.value = ''
     dispatch(createAnecdote(anecdoteContent))
   }
 
+  //anecdotes order by votes
+  const orderedByVotesAnectdotes = anecdotes.sort((a, b) => b.votes - a.votes)
+  
   return (
     <div>
       <h2>Anecdotes</h2>
-      {anecdotes.map(anecdote =>
+      {orderedByVotesAnectdotes.map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}
