@@ -18,6 +18,8 @@ const App = () => {
     dispatch(createAnecdote(anecdoteContent))
   }
 
+  console.log(test);
+
   return (
     <div>
       <h2>Anecdotes</h2>
