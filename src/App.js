@@ -9,7 +9,6 @@ const App = () => {
     <div>
       <h2>Anecdotes</h2>
       <AnecdoteList />
-      <h2>create new</h2>
       <NewAnecdote />
     </div>
   )
