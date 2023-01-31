@@ -1,12 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { increaseVote } from './reducers/anecdoteReducer'
+import { increaseVote, createAnecdote } from './reducers/anecdoteReducer'
 
 const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
 
+  //increase vote function using dispatch and reducer helper function increaseVote
   const vote = (id) => {
     dispatch(increaseVote(id))
+  }
+
+  //add new anecdote function
+  const addAnecdote = (event) => {
+    event.preventDefault()
+    const anecdoteContent = event.target.anecdoteName.value
+    event.target.anecdoteName.value =''
+    dispatch(createAnecdote(anecdoteContent))
   }
 
   return (
