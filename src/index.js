@@ -7,13 +7,13 @@ import reducer from './reducers/anecdoteReducer'
 import filterReducer from './reducers/filterReducer'
 
 // reducer combination
-const CombinedReducer = combineReducers({
+const combinedReducer = combineReducers({
   blogs: reducer,
   filter: filterReducer
 })
 
 //store creation
-const store = createStore(CombinedReducer)
+const store = createStore(combinedReducer)
 console.log(store.getState())
 
 ReactDOM.createRoot(document.getElementById('root')).render(
