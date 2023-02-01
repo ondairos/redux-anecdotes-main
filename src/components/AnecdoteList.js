@@ -5,14 +5,16 @@ const AnecdoteList = () => {
     // using the combined reducer use: state.blogs
     // const anecdotes = useSelector(state => state.blogs)
     const dispatch = useDispatch()
-    const anecdotes = useSelector(({ filter, blogs }) => {
-        
+    const anecdotes = useSelector(({ filter, anecdotes }) => {
+        let result = anecdotes
         if (filter === 'ALL') {
-            return blogs
+            return anecdotes
         } else if (filter === 'NONE') {
             return [...[]]
+        } else {
+            result = anecdotes.filter(element => element.content.includes(filter))
+            return result
         }
-        // return filter === 'NONE' ? blogs.splice(0) : blogs
     })
 
 

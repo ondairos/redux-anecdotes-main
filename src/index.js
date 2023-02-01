@@ -8,7 +8,7 @@ import filterReducer from './reducers/filterReducer'
 
 // reducer combination
 const combinedReducer = combineReducers({
-  blogs: reducer,
+  anecdotes: reducer,
   filter: filterReducer
 })
 
