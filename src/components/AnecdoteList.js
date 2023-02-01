@@ -26,7 +26,9 @@ const AnecdoteList = () => {
 
 
     //anecdotes order by votes
-    const orderedByVotesAnectdotes = anecdotes.sort((a, b) => b.votes - a.votes)
+    // spread new anecdote array because anecdotes is readonly from useSelector Redux
+    const orderedByVotesAnectdotes = [...anecdotes].sort((a, b) => b.votes - a.votes)
+
 
     return (
         <div>        {
