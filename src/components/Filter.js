@@ -16,18 +16,19 @@ const Filter = (props) => {
                 type="radio"
                 name="filter"
                 onChange={() => dispatch(filterChange('ALL'))}
-            />
+            /> <span></span>
             None
             <input
                 type="radio"
                 name="filter"
                 onChange={() => dispatch(filterChange('NONE'))}
             />
+            <span>Search </span>
             Filter
             <input
                 name="filter"
                 onChange={handleChange}
-            />
+            /> <span></span>
         </div>
     )
 }
