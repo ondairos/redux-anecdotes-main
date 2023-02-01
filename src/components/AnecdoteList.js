@@ -12,6 +12,7 @@ const AnecdoteList = () => {
         } else if (filter === 'NONE') {
             return [...[]]
         } else {
+            // Array.filter() method to filter out elements from the "anecdotes" array that don't match the current "filter" value. The filter function passed to Array.filter() checks if the "content" property of each element in the array includes the "filter" value. The filtered elements that match the condition are stored in the "result" variable, which will only contain the elements from the "anecdotes" array that have a "content" property that includes the "filter" value.
             result = anecdotes.filter(element => element.content.includes(filter))
             return result
         }
