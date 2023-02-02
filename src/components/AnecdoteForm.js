@@ -14,6 +14,7 @@ const NewAnecdote = () => {
         event.target.anecdoteName.value = ''
 
         const newAnecdote = await anecdoteService.createNew(anecdoteContent)
+        // dispatch(createAnecdote(anecdoteContent))
         
         dispatch(createAnecdote(newAnecdote))
         dispatch(createNotification(anecdoteContent))
