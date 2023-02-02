@@ -13,10 +13,9 @@ const NewAnecdote = () => {
         const anecdoteContent = event.target.anecdoteName.value
         event.target.anecdoteName.value = ''
 
-        const newAnecdote = await anecdoteService.createNew(anecdoteContent)
-        // dispatch(createAnecdote(anecdoteContent))
-        
-        dispatch(createAnecdote(newAnecdote))
+        // const newAnecdote = await anecdoteService.createNew(anecdoteContent)
+        dispatch(createAnecdote(anecdoteContent))
+
         dispatch(createNotification(anecdoteContent))
         setTimeout(() => {
             dispatch(clearNotification())
