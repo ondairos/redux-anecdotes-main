@@ -10,12 +10,13 @@ const App = () => {
 
   const dispatch = useDispatch()
 
-  //useEffect hook to initialize the anecdotes into the App
+  //useEffect hook  toinitialize the anecdotes into the App -WE HIDE THIS with Redux Thunk-
   // useEffect(() => {
   //   anecdoteService.getAll()
   //     .then(anecdotes => dispatch(setAnecdotes(anecdotes)))
   // }, [dispatch])
 
+  // Redux Thunk
   useEffect(() => {
     dispatch(initializedAnecdotes())
   }, [dispatch])
