@@ -3,6 +3,7 @@ import AnecdoteList from './components/AnecdoteList'
 // import { useDispatch } from 'react-redux'
 import Filter from './components/Filter'
 // import { useEffect } from 'react'
+import Notification from './components/Notification'
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
     <div>
       <h2>Anecdotes</h2>
       <NewAnecdote />
+      <Notification />
       <br></br>
       <Filter />
       <hr></hr>

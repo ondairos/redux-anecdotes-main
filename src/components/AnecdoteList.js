@@ -5,7 +5,7 @@ const AnecdoteList = () => {
     // using the combined reducer use: state.blogs
     // const anecdotes = useSelector(state => state.blogs)
     const dispatch = useDispatch()
-    const anecdotes = useSelector(({ filter, anecdotes }) => {
+    const anecdotesRedux = useSelector(({ filter, anecdotes }) => {
         let result = anecdotes
         if (filter === 'ALL') {
             return anecdotes
@@ -27,7 +27,7 @@ const AnecdoteList = () => {
 
     //anecdotes order by votes
     // spread new anecdote array because anecdotes is readonly from useSelector Redux
-    const orderedByVotesAnectdotes = [...anecdotes].sort((a, b) => b.votes - a.votes)
+    const orderedByVotesAnectdotes = [...anecdotesRedux].sort((a, b) => b.votes - a.votes)
 
 
     return (
