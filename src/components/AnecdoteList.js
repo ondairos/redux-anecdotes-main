@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { increaseVote } from '../reducers/anecdoteReducer'
+import { notifyLike, clearNotification } from '../reducers/notificationReducer'
 
 const AnecdoteList = () => {
     // using the combined reducer use: state.blogs
@@ -20,8 +21,12 @@ const AnecdoteList = () => {
 
 
     //increase vote function using dispatch and reducer helper function increaseVote
-    const vote = (id) => {
+    const vote = (id, content) => {
         dispatch(increaseVote(id))
+        dispatch(notifyLike(content))
+        setTimeout(() => {
+            dispatch(clearNotification())
+        }, 5000)
     }
 
 
@@ -39,7 +44,7 @@ const AnecdoteList = () => {
                     </div>
                     <div>
                         has {anecdote.votes}
-                        <button onClick={() => vote(anecdote.id)}>vote</button>
+                        <button onClick={() => vote(anecdote.id,anecdote.content)}>vote</button>
                     </div>
                 </div>
             )
