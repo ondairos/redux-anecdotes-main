@@ -26,17 +26,17 @@ const anecdoteSlice = createSlice({
   //initialize with empty array for json server import
   initialState: [],
   reducers: {
-    // createAnecdote(state, action) {
-    //   state.push(action.payload)
-    // },
-    // increaseVotes(state, action) {
-    //   const id = action.payload
-    //   const anecdoteToChange = state.find(anect => anect.id === id)
-    //   const changedAnectode = {
-    //     ...anecdoteToChange, votes: anecdoteToChange.votes + 1
-    //   }
-    //   return state.map(anecdote => anecdote.id !== id ? anecdote : changedAnectode)
-    // },
+    appendVote(state, action) {
+      return state.map(anecdote => {
+        if (anecdote.id === action.payload.id) {
+          return {
+            ...anecdote,
+            votes: anecdote.votes + 1
+          };
+        }
+        return anecdote;
+      });
+    },
     //append anectodes to app
     apendAnectode(state, action) {
       state.push(action.payload)
@@ -85,7 +85,7 @@ const anecdoteSlice = createSlice({
 //   }
 // }
 
-export const { increaseVotes, apendAnectode, setAnecdotes } = anecdoteSlice.actions
+export const { apendAnectode, setAnecdotes, appendVote } = anecdoteSlice.actions
 
 // In the inner function, meaning the asynchronous action, the operation first fetches all the notes from the server and then dispatches the setNotes action, which adds them to the store.
 export const initializedAnecdotes = () => {
@@ -113,10 +113,11 @@ export const createAnecdote = (content) => {
 export const increaseVote = (object) => {
   return async (dispatch) => {
     const updatedAnecdote = await anecdotesService.updateAnecdote(object);
-    dispatch({
-      type: "UPDATE_ANECDOTE",
-      data: updatedAnecdote,
-    });
+    // dispatch({
+    //   type: "UPDATE_ANECDOTE",
+    //   data: updatedAnecdote,
+    // });
+    dispatch(appendVote(updatedAnecdote))
   };
 };
 
