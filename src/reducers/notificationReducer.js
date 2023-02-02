@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     message: 'Hello, this is your initial notification.',
     error: 'error here'
-    }
+}
 
 const notificationSlice = createSlice({
     name: 'notifications',
@@ -20,5 +20,5 @@ const notificationSlice = createSlice({
 })
 
 
-export const { createNotification } = notificationSlice.actions
+export const { createNotification, clearNotification } = notificationSlice.actions
 export default notificationSlice.reducer
