@@ -21,9 +21,9 @@ const AnecdoteList = () => {
 
 
     //increase vote function using dispatch and reducer helper function increaseVote
-    const vote = (id, content) => {
-        dispatch(increaseVote(id))
-        dispatch(notifyLike(content))
+    const vote = (anecdote) => {
+        dispatch(increaseVote(anecdote))
+        dispatch(notifyLike(anecdote.content ))
         setTimeout(() => {
             dispatch(clearNotification())
         }, 5000)
@@ -44,7 +44,7 @@ const AnecdoteList = () => {
                     </div>
                     <div>
                         has {anecdote.votes}
-                        <button onClick={() => vote(anecdote.id,anecdote.content)}>vote</button>
+                        <button onClick={() => vote(anecdote)}>vote</button>
                     </div>
                 </div>
             )
