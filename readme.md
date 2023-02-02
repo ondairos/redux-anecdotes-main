@@ -7,15 +7,15 @@ The application allows you to create and manage anecdotes, as well as view them 
 
 The state management is done with Redux, and it includes two parts:
 
-    Reducers: Handle the changes to the state, such as creating a new anecdote, voting for an anecdote, or filtering anecdotes.
-    Actions: Dispatch events that trigger the changes in the state.
+- Reducers: Handle the changes to the state, such as creating a new anecdote, voting for an anecdote, or filtering anecdotes.
+- Actions: Dispatch events that trigger the changes in the state.
 
 The main components are:
 
-    AnecdoteForm: Allows you to create new anecdotes
-    AnecdoteList: Displays a list of anecdotes ordered by the number of votes
-    Filter: Lets you filter anecdotes by keyword
-    Notification: Displays a notification when an anecdote has been voted for
+- AnecdoteForm: Allows you to create new anecdotes
+- AnecdoteList: Displays a list of anecdotes ordered by the number of votes
+- Filter: Lets you filter anecdotes by keyword
+- Notification: Displays a notification when an anecdote has been voted for
 
 The App component uses the useEffect hook to initialize the anecdotes from the server when the component is first rendered. The data is fetched using axios, and the dispatch action initializedAnecdotes is used to populate the Redux store with the anecdotes.
 
