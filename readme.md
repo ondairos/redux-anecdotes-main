@@ -1,28 +1,42 @@
-# Anecdotes
+# Redux-Anecdotes
+A React web application that uses Redux to manage the state of anecdotes and their votes.
 
-A React app to display and create anecdotes using Redux for state management.
+## Description
 
-## Usage
+The application allows you to create and manage anecdotes, as well as view them sorted by the number of votes.
 
-- Clone this repository to your local machine
-- Run `npm install` to install dependencies
-- Run `npm start` to start the development server
+The state management is done with Redux, and it includes two parts:
 
-## App components
+    Reducers: Handle the changes to the state, such as creating a new anecdote, voting for an anecdote, or filtering anecdotes.
+    Actions: Dispatch events that trigger the changes in the state.
 
-- `App`: Renders the main layout of the app and displays the `NewAnecdote` and `AnecdoteList` components.
-- `NewAnecdote`: A form to create new anecdotes with a dispatch action to add it to the store.
-- `AnecdoteList`: A list of anecdotes sorted by the number of votes, with a vote button to increase its votes.
+The main components are:
 
-## Redux
+    AnecdoteForm: Allows you to create new anecdotes
+    AnecdoteList: Displays a list of anecdotes ordered by the number of votes
+    Filter: Lets you filter anecdotes by keyword
+    Notification: Displays a notification when an anecdote has been voted for
 
-The state of this app is managed by Redux with these actions and reducer functions:
+The App component uses the useEffect hook to initialize the anecdotes from the server when the component is first rendered. The data is fetched using axios, and the dispatch action initializedAnecdotes is used to populate the Redux store with the anecdotes.
 
-- `increaseVote`: Action to increase the votes of an anecdote by its id.
-- `createAnecdote`: Action to create a new anecdote with the content provided.
-- `reducer`: The main reducer function to handle the state updates with these actions.
+The AnecdoteList component uses the useSelector hook from the react-redux library to get the anecdotes from the Redux store, and the useDispatch hook to dispatch the increaseVote action when an anecdote is voted for. The vote is also accompanied by a notification displayed through the Notification component.
 
-## Notes
 
-- This app has a hardcoded list of anecdotes at start in `anecdotesAtStart` constant.
-- The ids of the anecdotes are generated randomly with the `getId` function.
+## Development server
+To run the development server, run `npm start` in the terminal.
+
+## Testing
+To run tests, run `npm test` in the terminal.
+
+## Deployment
+To build the application for deployment, run `npm build` in the terminal.
+
+## Built With
+- React
+- Redux
+- Axios
+- json-server
+
+## Author
+Ioannis Kantiloros
+
