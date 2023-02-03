@@ -25,7 +25,11 @@ const anecdoteSlice = createSlice({
     // Dispatching multiple actions seems a bit impractical. add an action creator setNotes which can be used to directly replace the notes array.
     setAnecdotes(state, action) {
       return action.payload
+    },
+    removeAnecdote(state, action) {
+      return state.filter(anecdote => anecdote !== action.payload);
     }
+
   }
 })
 
@@ -66,7 +70,7 @@ const anecdoteSlice = createSlice({
 //   }
 // }
 
-export const { apendAnectode, setAnecdotes, appendVote } = anecdoteSlice.actions
+export const { apendAnectode, setAnecdotes, appendVote, removeAnecdote } = anecdoteSlice.actions
 
 // In the inner function, meaning the asynchronous action, the operation first fetches all the notes from the server and then dispatches the setNotes action, which adds them to the store.
 export const initializedAnecdotes = () => {
@@ -102,5 +106,11 @@ export const increaseVote = (object) => {
   };
 };
 
+export const deleteAnecdote = (object) => {
+  return async (dispatch) => {
+    const deletedAnecdote = await anecdotesService.deleteAnecdoteServer(object)
+    dispatch(removeAnecdote(deletedAnecdote))
+  }
+}
 
 export default anecdoteSlice.reducer

@@ -26,4 +26,10 @@ const updateAnecdote = async (object) => {
     return response.data
 }
 
-export default { getAll, createNew, updateAnecdote }
+// delete anecdote
+const deleteAnecdoteServer = async (object) => {
+    const response = await axios.delete(`${baseUrl}/${object.id}`)
+    return response.data
+}
+
+export default { getAll, createNew, updateAnecdote, deleteAnecdoteServer }
