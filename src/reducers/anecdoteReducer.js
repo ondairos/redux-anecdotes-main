@@ -110,7 +110,10 @@ export const deleteAnecdote = (object) => {
   return async (dispatch) => {
     const deletedAnecdote = await anecdotesService.deleteAnecdoteServer(object)
     dispatch(removeAnecdote(deletedAnecdote))
+    const updatedAnecdotes = await anecdotesService.getAll()
+    dispatch(setAnecdotes(updatedAnecdotes))
   }
 }
+
 
 export default anecdoteSlice.reducer
